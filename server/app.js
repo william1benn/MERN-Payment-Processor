@@ -32,9 +32,6 @@ app.use(cors({
   origin: ['http://localhost:3000']
 }));
 
-app.use((req,res,next)=>{
-  res.sendFile(__dirname + "/public/index.html");
-});
 
 
 // Middleware Setup
@@ -53,7 +50,7 @@ app.use(require('node-sass-middleware')({
   dest: path.join(__dirname, 'public'),
   sourceMap: true
 }));
-      
+
 
 const index = require('./routes/index');
 app.use('/', index);
@@ -70,5 +67,10 @@ app.use('/invoice',invoice);
 const pdf = require('./routes/pdfview')
 app.use('/pdf',pdf)
 
+//TO merge react and express
+
+app.use((req,res,next)=>{
+  res.sendFile(__dirname + "/public/index.html");
+});
 
 module.exports = app;

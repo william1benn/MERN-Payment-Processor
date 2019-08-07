@@ -34,7 +34,7 @@ console.log(e.target.name)
 newCustomer=(e)=>{
     e.preventDefault();
 
-    axios.post(`process.env.REACT_APP_BASE/addCustomer`,{
+    axios.post(`${process.env.REACT_APP_BASE}addCustomer`,{
         name:this.state.Name,
         email:this.state.Email,
         phone:this.state.Phone,
