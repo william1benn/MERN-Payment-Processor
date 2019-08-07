@@ -36,7 +36,7 @@ const loadUser = async () => {
     }
 
 try{
-const res = await axios.get(`http://localhost:5000/auth/authR`);
+const res = await axios.get(`${process.env.REACT_APP_BASE}auth/authR`);
 dispatch({
     type: USER_LOADED,
     payload:res.data,
@@ -54,7 +54,7 @@ const register = async formData =>{
         }
     }
     try{
-const res = await axios.post(`http://localhost:5000/auth/register`,formData,config);
+const res = await axios.post(`${process.env.REACT_APP_BASE}auth/register`,formData,config);
 
 dispatch({
     type: REGISTER_SUCCESS,
