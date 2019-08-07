@@ -23,7 +23,7 @@ export default class Createcust extends Component {
   componentDidMount(){
 
     let id = this.props.match.params.custid;
-    axios.get(`http://localhost:5000/getCustomer/${id}`).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BASE}${id}`).then((res)=>{
 
         this.setState({
     
@@ -60,7 +60,7 @@ updateCustomer=(e)=>{
 
     let id = this.props.match.params.custid;
 
-    axios.post(`http://localhost:5000/updateCustomer/${id}`,{
+    axios.post(`${process.env.REACT_APP_BASE}updateCustomer/${id}`,{
         name:this.state.Name,
         email:this.state.Email,
         phone:this.state.Phone,

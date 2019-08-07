@@ -22,9 +22,9 @@ state={
         
         let id = this.props.match.params.custid;
 
-        Axios.get(`http://localhost:5000/invoice/InvID/${id}`)
+        Axios.get(`${process.env.REACT_APP_BASE}invoice/InvID/${id}`)
          .then(res1 => {
-            Axios.get(`http://localhost:5000/getCustomer/${id}`)
+            Axios.get(`${process.env.REACT_APP_BASE}getCustomer/${id}`)
             .then(res2 => this.setState({
                 invoice:res1.data.invID,
                 aCustomer:res2.data,
@@ -42,7 +42,7 @@ state={
         let id = this.props.match.params.custid;
         console.log(id)
 
-        Axios.post(`http://localhost:5000/delCustomer/${id}`)
+        Axios.post(`${process.env.REACT_APP_BASE}delCustomer/${id}`)
         .then((theRes)=>{
   
             console.log(theRes)
@@ -57,9 +57,9 @@ state={
     sending = (e) => {
         e.preventDefault();
         let invoiceID = this.state.invoice
-        Axios.post(`http://localhost:5000/invoice/sendInvoice/${invoiceID}`)
+        Axios.post(`${process.env.REACT_APP_BASE}invoice/sendInvoice/${invoiceID}`)
         .then((response)=>{
-            Axios.post("http://localhost:5000/pdf/download/",{
+            Axios.post(`${process.env.REACT_APP_BASE}pdf/download/`,{
                 files:response.data.invoice_pdf,
             }).then((newRes)=>{
 

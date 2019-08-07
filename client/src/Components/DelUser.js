@@ -6,7 +6,7 @@ export default class DelUser extends Component {
     componentDidMount(){
         let id = this.props.match.params.custid;
 
-        Axios.post(`http://localhost:5000/delCustomer/${id}`)
+        Axios.post(`${process.env.REACT_APP_BASE}delCustomer/${id}`)
         .then((theRes)=>{
   
             console.log(theRes)

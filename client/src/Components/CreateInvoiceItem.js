@@ -24,12 +24,12 @@ export default class CreateInvoiceItem extends Component {
 
             let id = this.props.match.params.custid;
 
-            axios.post(`http://localhost:5000/invoice/InvoiceMethod/${id}`,{
+            axios.post(`${process.env.REACT_APP_BASE}/invoice/InvoiceMethod/${id}`,{
                 amount:this.state.amount,
                 description:this.state.description,
                
             }).then((theRes)=>{
-            axios.post("http://localhost:5000/invoice/createInvoice/",{
+            axios.post(`${process.env.REACT_APP_BASE}/invoice/createInvoice/`,{
 
                     customer: this.props.match.params.custid,
                     days: this.state.days,

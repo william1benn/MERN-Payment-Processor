@@ -55,7 +55,7 @@ class Main extends Component {
     this.setState({loading:true});
   
     setTimeout(() => {
-      axios.get('http://localhost:5000/allCustomers')
+      axios.get(`${process.env.REACT_APP_BASE}allCustomers`)
       .then(res=> this.setState({allUsers:res.data , loading:false, searched:res.data}))
     }, 1000);
 
