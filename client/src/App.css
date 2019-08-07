@@ -1,0 +1,64 @@
+.Create-Customer{
+display: flex;
+justify-content: center;
+flex-direction: column;
+text-align: center;
+}
+
+.inputs{
+
+margin-top:11px;
+
+}
+
+.forms{
+    margin-left:23%;
+    margin-right:23%;
+}
+
+.card-panel{
+    margin-left:23%;
+    margin-right:23%;
+}
+
+.searchBox{
+    margin-top:1%;
+}
+
+
+
+body {
+    width:100%;
+    background-image: url("/images/pinkpurplebg.png");
+   }
+   
+
+.spinner{   
+    text-align: center;
+}
+
+.list-button{
+    margin-top: 10px;
+}
+
+.custButton{
+  display: flex;
+  justify-content: center;
+}
+
+/* STYLE FOR FORMS */
+
+.input-field label {
+    color:#ccc;
+  }
+
+  .input-field {
+    color:#ccc;
+  }  
+  .input-field input[type=text]:focus + label {
+    color: #ccc;
+  }
+
+
+
+
