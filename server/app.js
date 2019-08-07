@@ -13,7 +13,7 @@ const stripe = require("stripe")("sk_test_j8s4CsAyn22jIGhbjmVG0tqh00XkCOAEFx");
 
 
 mongoose
-  .connect('mongodb://localhost/billing', {useNewUrlParser: true})
+  .connect(process.env.MONGODB_URI, {useNewUrlParser: true})
   .then(x => {
     console.log(`Connected to Mongo! Database name: "${x.connections[0].name}"`)
   })
@@ -31,6 +31,11 @@ app.use(cors({
   credentials: true, //Change to true for auth
   origin: ['http://localhost:3000']
 }));
+
+app.use((req,res,next)=>{
+  res.sendFile(__dirname + "/public/index.html");
+});
+
 
 // Middleware Setup
 app.use(logger('dev'));
