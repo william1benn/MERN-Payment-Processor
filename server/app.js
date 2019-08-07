@@ -67,10 +67,20 @@ app.use('/invoice',invoice);
 const pdf = require('./routes/pdfview')
 app.use('/pdf',pdf)
 
-//TO merge react and express
+//To merge react and express
 
-app.use((req,res,next)=>{
-  res.sendFile(__dirname + "/public/index.html");
+const root = path.join(__dirname, 'public/');
+app.use(express.static(root));
+
+app.use((req, res, next) => {
+    if (
+        req.method === 'GET' &&
+        req.accepts('html') &&
+        !req.is('json') &&
+        !req.path.includes('.')
+    ) {
+        res.sendFile('index.html', { root });
+    } else next();
 });
 
 module.exports = app;
