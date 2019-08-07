@@ -9,4 +9,5 @@ function hookClass(Component) {
     }
   }
 
+
   export default hookClass;

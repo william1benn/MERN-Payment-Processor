@@ -29,7 +29,7 @@ const app = express();
 
 app.use(cors({
   credentials: true, //Change to true for auth
-  origin: ['http://localhost:3000']
+  origin: ['http://localhost:3000', 'https://invoice-paymentprocessor.herokuapp.com/']
 }));
 
 
