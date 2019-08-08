@@ -160,5 +160,15 @@ stripe.invoices.sendInvoice(req.params.sendid,function(err, invoice) {
 })
 
 
+router.post("/payLink",(req,res,next)=>{
+  Customers.findOneAndUpdate({custid:req.body.custid},{paymentLink: req.body.linkToPay}).then((theResponse)=>{
+  res.json(theResponse)
+}).catch((error)=>{
+  res.json(error)
+})
+
+});
+
+
 
 module.exports = router;

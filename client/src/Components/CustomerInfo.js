@@ -13,7 +13,8 @@ state={
     ready: false,
     invoice:'',
     pdf64:'',
-    
+    pay:'',
+    uptodate:false,
     
 }
 
@@ -53,7 +54,6 @@ state={
 
     }
 
-
     sending = (e) => {
         e.preventDefault();
         let invoiceID = this.state.invoice
@@ -61,22 +61,28 @@ state={
         .then((response)=>{
             Axios.post(`${process.env.REACT_APP_BASE}pdf/download/`,{
                 files:response.data.invoice_pdf,
+                pay:response.data.hosted_invoice_url,
             }).then((newRes)=>{
 
                     this.setState({
-                        pdf64 : newRes.data
+                        pdf64 : newRes.data,
+                        pay:response.data.hosted_invoice_url,
+                        uptodate:true,
                     })
-                    console.log(this.state.pdf64)
-                    
 
-}).catch((error)=>{
-                console.log(error)
-            })
-                // Axios.get(response.data.invoice_pdf, headers)
-                // .then((response)=>{
-                //     console.log(response, '--=-=-=-=-*******')
-                //     // FileDownload(response.data,)
-                // })
+                        }).then((theResponse)=>{
+                            if(this.state.uptodate===true){
+                            Axios.post(`${process.env.REACT_APP_BASE}invoice/payLink`,{
+                                    custid : this.state.aCustomer.id,
+                                    linkToPay:this.state.pay,
+                            })
+
+                            this.props.history.push("/findCustomer")
+                        }
+                                }).catch((error)=>{
+                                     console.log(error)
+                                                        })
+             
 
             
             //this.props.history.push('/findCustomer')
@@ -132,6 +138,8 @@ return <div>
     </div>
 }
 }
+
+
     render() {
 
 
@@ -157,10 +165,6 @@ class="btn waves-effect waves-light" type="submit" name="action">Update Customer
 </Link>
 
 
-<div>
-  <p>PDF</p>
-  <img src={`data:image/png;base64,${this.state.pdf64}`} alt="Red dot" />
-</div>
 
 
             </div>

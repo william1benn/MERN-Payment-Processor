@@ -15,7 +15,7 @@ constructor(props){
         return (
              <div>
              <Findcust  theCust = {this.props.theCust} searchRes= {this.props.searchRes} />
-             <FoundCust theCustomers = {this.props.theCustomers} loading={this.props.loading} getCust={this.props.getCust} />
+             <FoundCust theBill = {this.props.paying} theCustomers = {this.props.theCustomers} loading={this.props.loading} getCust={this.props.getCust} />
             
         </div>
         )

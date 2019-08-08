@@ -13,10 +13,6 @@ const  Nav =(props)=>{
     localStorage.clear();
   }
 
-  // useEffect(()=> {
-  //     authContext.loadUser();
-  //     //eslint-disable-next-line
-  //   },[]);
   
 
   const authLinks =(
@@ -37,15 +33,15 @@ const  Nav =(props)=>{
     <Fragment>
       <li> <Link to="/login">Login</Link></li>
       <li> <Link to="/register">Register</Link></li>
+      <li><Link to="/howto">How it works</Link></li>
     </Fragment>
   )
     
         return (
             <div>
      <nav>
-    <div className="nav-wrapper #64b5f6 blue lighten-2">
-      <Link to ="/findCustomer" className="brand-logo">Logo </Link>
-      <ul id="nav-mobile" className="right hide-on-med-and-down">
+    <div className="nav-wrapper #ffffff white">
+      <ul id="nav-mobile" className="right">
    {user? authLinks : guessLinks}
       </ul>
     </div>

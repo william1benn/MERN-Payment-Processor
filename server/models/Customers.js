@@ -16,6 +16,7 @@ const CustomerSchema = new Schema({
   balance:Number,
   imgName: String,
   imgPath: String,
+  paymentLink:String,
 
 }, {
   timestamps: true

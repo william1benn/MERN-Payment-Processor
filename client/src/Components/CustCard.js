@@ -4,9 +4,20 @@ import { Link } from 'react-router-dom';
 
 
 export default class CustCard extends Component {
- 
-  
+
+  state={
+    payments:true,
+  }
+
+  componentDidMount(){
+
+  }
+
   render() {
+
+    console.log(this.props)
+    console.log(this.props.customer.paymentLink)
+    // const paymentButton = <Link to={`${this.props.customer.paymentLink}`} className=" list-button waves-effect btn-small #64b5f6 red lighten-2">Pay</Link>
 
     return (
      
@@ -16,7 +27,11 @@ export default class CustCard extends Component {
             <td>{this.props.customer.phone}</td>
             <td>{this.props.customer.state}</td>
             <td>{this.props.customer.balance}</td>
-      <Link to={`customerInfo/${this.props.customer.custid}`} className=" list-button waves-effect btn-small #64b5f6 blue lighten-2">View</Link>
+            {
+              this.props.customer.paymentLink &&
+              <a href ={this.props.customer.paymentLink} className=" list-button waves-effect btn-small #64b5f6 red lighten-2 col s4">Pay Now</a>
+            }
+      <Link to={`customerInfo/${this.props.customer.custid}`} className=" list-button waves-effect btn-small #64b5f6 blue lighten-2 col s4 push-s1">View More</Link>
           </tr>
         
       

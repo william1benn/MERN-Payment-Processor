@@ -12,6 +12,7 @@ export default class Findcust extends Component {
           input : "",
           visable:[],
           emptyInput:true,
+         
     
       }
   
@@ -35,6 +36,7 @@ export default class Findcust extends Component {
     
         }) 
     }
+
 
     render() {
 

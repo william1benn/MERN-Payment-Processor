@@ -29,7 +29,7 @@ margin-top:11px;
 
 body {
     width:100%;
-    background-image: url("/images/pinkpurplebg.png");
+    background-image: url("/images/backg.jpg");
    }
    
 
@@ -49,15 +49,74 @@ body {
 /* STYLE FOR FORMS */
 
 .input-field label {
-    color:#ccc;
+    color:#000;
   }
 
-  .input-field {
-    color:#ccc;
+.input-field {
+    color:#000;
   }  
-  .input-field input[type=text]:focus + label {
-    color: #ccc;
+.input-field input[type=text]:focus + label {
+    color: #000;
   }
+
+.input-field input[type=text] {
+    border-bottom: 2px #000;
+    box-shadow: 0 2px 0 0 #000;
+ }
+
+ .input-field input[type=email] {
+  border-bottom: 2px #000;
+  box-shadow: 0 2px 0 0 #000;
+}
+
+.input-field input[type=password] {
+  border-bottom: 2px #000;
+  box-shadow: 0 2px 0 0 #000;
+}
+
+li{
+  color:#4caf50;
+
+}
+
+nav ul li a{
+  color: #4caf50;
+
+}
+
+.thePhone{
+  width:100%;
+  margin-left: 17%;
+}
+
+
+.Main{
+  display: flex;
+  justify-content: space-around;
+}
+
+.title{
+  color:#4caf50;
+  margin-right: 18%;
+  width: 100%;
+  padding-top: 123px;
+  display: flex;
+  flex-direction: column;
+}
+
+.signin-btn{
+  width: 80%;
+}
+
+.SignButton{
+  margin-top:14%;
+}
+
+.theTitle{
+  margin-right:17%;
+  text-align: center;
+}
+
 
 
 
