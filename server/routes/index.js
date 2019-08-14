@@ -50,6 +50,7 @@ router.post('/addCustomer',(req,res,next)=>{
         description:call.description,
         balance:call.balance,
     }).then((xx)=>{
+      console.log('xx', xx)
       res.json("Success")
 
     }).catch((error)=>{
@@ -57,6 +58,7 @@ router.post('/addCustomer',(req,res,next)=>{
     })
 
     if(err){
+      console.log(err)
       res.json(err)
     }
 }

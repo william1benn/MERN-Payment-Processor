@@ -80,8 +80,8 @@ class Main extends Component {
 
               <Nav  theToken = {this.props.thetok} theCurrentUser={this.props.theCurrentUser} />
 
+        <Alerts/>
 
-         <Alerts/>
         <Switch> 
 
         {/* Does not work to pass props */}
@@ -90,7 +90,7 @@ class Main extends Component {
               <Route exact path= '/Login' component={Login} />
               <Route exact path= '/Register' component={Register} />
 
-              <Route exact path='/findCustomer' render={(props) => <Results theCustomers = {this.state.searched} loading={this.state.loading} theCust = {this.state.allUsers} searchRes = {this.searchRes} getCust ={this.allCustomers}/>}/>
+              <Route exact path='/findCustomer' render={(props) => <Results {...props} theCustomers = {this.state.searched} loading={this.state.loading} theCust = {this.state.allUsers} searchRes = {this.searchRes} getCust ={this.allCustomers}/>}/>
               {/* <Route exact path='/create' component={Createcust}/> */}
 
               <Route exact path='/' component ={howto} />

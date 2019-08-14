@@ -28,8 +28,15 @@ margin-top:11px;
 body {
   font-family: 'Fjalla One', sans-serif;
   background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
-
+  display: flex;
+  min-height: 100vh;
+  flex-direction: column;
    }
+   
+  main {
+    min-height: calc(60vh - 10px);
+    flex: 1 0 auto;
+}
    
 
 .spinner{   
@@ -243,7 +250,9 @@ padding-right: 11px;
 }
 
 .theFooter{
+  
   padding-top:53px;
+ 
 }
 
 .page-footer{
@@ -258,3 +267,6 @@ padding-right: 11px;
 display:flex;
 justify-content: center;
 }
+
+
+

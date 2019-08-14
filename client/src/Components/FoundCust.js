@@ -24,7 +24,8 @@ export default class Users extends Component {
     }else{
     
       return (
-        <div className ="container">
+        <main>
+        <div className ="section-contain container">
         <div className = "row">
         <table className="responsive-table striped custTable col s12" >
         <thead>
@@ -49,7 +50,7 @@ export default class Users extends Component {
       </table>
       </div>
       </div>
-      
+      </main>
       );
     
          }

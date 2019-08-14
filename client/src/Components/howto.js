@@ -7,7 +7,7 @@ export default class howto extends Component {
 
 
     return (
-
+      <main>
       <div className="container">
         <div className="how-title">
           <h3>Quick Payments and Invoicing</h3>
@@ -45,8 +45,8 @@ export default class howto extends Component {
              </p>
            </div>
          </div>
-
       </div>
+      </main>
     )
   }
 }

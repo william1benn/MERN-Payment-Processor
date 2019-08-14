@@ -98,9 +98,12 @@ state={
 
 info(){
 
+
     if(this.state.ready===true){
         
-return <div className="container">
+return <main>
+
+<div className="container">
 
 <h3> {this.state.aCustomer.name}'s information</h3>
       <table class = "responsive-table">
@@ -133,64 +136,39 @@ return <div className="container">
  
 </div>
 
-
-
+</main>
     }
-
 }
-
 invoicing(){
-
 if(this.state.invoice !== undefined){
-
  return <div>
-
 <button onClick={this.sending} class="btn waves-effect waves-light btn-small #64b5f6 red lighten-2" type="submit" name="send"> Send </button>
-
 </div>
-
 }else {
-
 return <div>
 <Link to ={`/InvoiceItems/${this.state.aCustomer.id}`}>
 <button class="btn waves-effect waves-light btn-small #64b5f6 blue lighten-2" type="submit" name="action">Invoice</button>
 </Link>
-
     </div>
 }
 }
-
-
     render() {
-
-
         
         return (
 <div>
-
 {this.info()}
-
-
 <div className="info-btns">
-
 <Link to={`/findCustomer`}>
 <button class="btn waves-effect waves-light modal-trigger btn-small #64b5f6 blue lighten-2">Back</button>
 </Link>
-
  {this.invoicing()}
-
 <Link to={`/UpdateCustomer/${this.state.aCustomer.id}`}>
 <button class="btn waves-effect waves-light modal-trigger btn-small #64b5f6 blue lighten-2">Update</button>
 </Link>
-
 <button onClick ={this.delUser}
 class="btn waves-effect waves-light btn-small #64b5f6 blue lighten-2" type="submit" name="action">Delete</button>
-
 </div>
             </div>
         )
     }
 }
-
-
-

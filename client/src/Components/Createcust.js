@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import {withRouter} from 'react-router-dom';
 import axios from 'axios';
 import AuthContext from '../context/auth/authContext';
 import M from 'materialize-css';
@@ -51,8 +52,9 @@ newCustomer=(e)=>{
         balance:this.state.Balance,
         
       }).then((theRes)=>{
+        console.log(theRes)
         
-        this.props.history.push('/findCustomer')
+      this.props.history.push('/findCustomer')
         
       this.setState({
         Name:'',
@@ -152,4 +154,4 @@ const modal ={
   height:"85%",
 }
 
-export default Createcust;
+export default withRouter(Createcust);

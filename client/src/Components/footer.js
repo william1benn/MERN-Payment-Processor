@@ -4,6 +4,7 @@ import {Link} from "react-router-dom";
 
 const footer = () => {
   return (
+   
     <div className ="theFooter">
        <footer class="page-footer">
           <div class="container">
@@ -29,6 +30,7 @@ const footer = () => {
           </div>
         </footer>
     </div>
+    
 
 
   )
