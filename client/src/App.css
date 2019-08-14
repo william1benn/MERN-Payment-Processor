@@ -1,3 +1,4 @@
+
 .Create-Customer{
 display: flex;
 justify-content: center;
@@ -269,4 +270,18 @@ justify-content: center;
 }
 
 
+@media only screen and (max-width: 600px) {
+  .theHowTo {
+   flex-direction: column;
+   align-items: center;
+  }
+
+  .invoice-Customer{
+
+    margin-top:11px;
+    margin-bottom:11px
+
+  
+  }
+}
 

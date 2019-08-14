@@ -13,9 +13,7 @@ export default class howto extends Component {
           <h3>Quick Payments and Invoicing</h3>
         </div>
 
-       <div className="how-info">
-
-         </div> 
+     
          <h4>Getting Started</h4>
          <div className="theHowTo">
            <div className="create-Customer">
