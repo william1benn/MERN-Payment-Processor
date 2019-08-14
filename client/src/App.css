@@ -12,6 +12,10 @@ margin-top:11px;
 
 }
 
+.btn, .btn-small {
+  font-size: 0.8em !important;
+}
+
 .forms{
     margin-left:23%;
     margin-right:23%;
@@ -283,5 +287,16 @@ justify-content: center;
 
   
   }
+
+  #view-btn{
+    margin-left:0%;
+    width: 58%;
+  }
+
+  #payNowBtn{
+    margin-left: 8%;
+    width: 58%;
+  }
+
 }
 

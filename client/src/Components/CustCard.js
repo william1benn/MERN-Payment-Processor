@@ -29,7 +29,7 @@ export default class CustCard extends Component {
             <td>{this.props.customer.balance}</td>
             {
               this.props.customer.paymentLink &&
-              <a href ={this.props.customer.paymentLink} className=" list-button waves-effect btn-small #64b5f6 red lighten-2 col s4">Pay Now</a>
+              <a href ={this.props.customer.paymentLink} id="payNowBtn" className="list-button waves-effect btn-small #64b5f6 red lighten-2 col s4">Pay Now</a>
             }
       <Link to={`customerInfo/${this.props.customer.custid}`} id="view-btn" className="list-button waves-effect btn-small #64b5f6 blue lighten-2 col s4 push-s1">View More</Link>
           </tr>
