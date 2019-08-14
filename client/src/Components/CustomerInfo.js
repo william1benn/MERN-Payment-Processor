@@ -23,9 +23,9 @@ state={
         
         let id = this.props.match.params.custid;
 
-        Axios.get(`${process.env.REACT_APP_BASE}invoice/InvID/${id}`)
+        Axios.get(`${process.env.REACT_APP_BASE}/invoice/InvID/${id}`)
          .then(res1 => {
-            Axios.get(`${process.env.REACT_APP_BASE}getCustomer/${id}`)
+            Axios.get(`${process.env.REACT_APP_BASE}/getCustomer/${id}`)
             .then(res2 => this.setState({
                 invoice:res1.data.invID,
                 aCustomer:res2.data,
@@ -43,7 +43,7 @@ state={
         let id = this.props.match.params.custid;
         console.log(id)
 
-        Axios.post(`${process.env.REACT_APP_BASE}delCustomer/${id}`)
+        Axios.post(`${process.env.REACT_APP_BASE}/delCustomer/${id}`)
         .then((theRes)=>{
   
             console.log(theRes)
@@ -57,9 +57,9 @@ state={
     sending = (e) => {
         e.preventDefault();
         let invoiceID = this.state.invoice
-        Axios.post(`${process.env.REACT_APP_BASE}invoice/sendInvoice/${invoiceID}`)
+        Axios.post(`${process.env.REACT_APP_BASE}/invoice/sendInvoice/${invoiceID}`)
         .then((response)=>{
-            Axios.post(`${process.env.REACT_APP_BASE}pdf/download/`,{
+            Axios.post(`${process.env.REACT_APP_BASE}/pdf/download/`,{
                 files:response.data.invoice_pdf,
                 pay:response.data.hosted_invoice_url,
             }).then((newRes)=>{
@@ -72,7 +72,7 @@ state={
 
                         }).then((theResponse)=>{
                             if(this.state.uptodate===true){
-                            Axios.post(`${process.env.REACT_APP_BASE}invoice/payLink`,{
+                            Axios.post(`${process.env.REACT_APP_BASE}/invoice/payLink`,{
                                     custid : this.state.aCustomer.id,
                                     linkToPay:this.state.pay,
                             })
@@ -100,31 +100,52 @@ info(){
 
     if(this.state.ready===true){
         
-return <div>
+return <div className="container">
 
-<h2>{this.state.aCustomer.name}</h2>
-<h5>{this.state.aCustomer.email}</h5>
-<h5>{this.state.aCustomer.phone}</h5>
-<h5>{this.state.aCustomer.address.line1}</h5>
-<h5>{this.state.aCustomer.address.city}</h5>
-<h5>{this.state.aCustomer.address.state}</h5>
-<h5>{this.state.aCustomer.address.country}</h5>
-<h5>{this.state.aCustomer.description}</h5>
-<h5>{this.state.aCustomer.balance}</h5>
-
-
+<h3> {this.state.aCustomer.name}'s information</h3>
+      <table class = "responsive-table">
+         <thead>
+            <tr>
+               <th>Name</th>
+               <th>Email</th>
+               <th>Phone Number</th>
+               <th>Street</th>
+               <th>City</th>
+               <th>State</th>
+               <th>description of charges</th>
+               <th>Balance</th>
+            </tr>
+         </thead>
+         <tbody>
+            <tr>
+               <td>{this.state.aCustomer.name}</td>
+               <td>{this.state.aCustomer.email}</td>
+               <td>{this.state.aCustomer.phone}</td>
+               <td>{this.state.aCustomer.address.line1}</td>
+               <td>{this.state.aCustomer.address.city}</td>
+               <td>{this.state.aCustomer.address.state}</td>
+               <td>{this.state.aCustomer.description}</td>
+               <td>{this.state.aCustomer.balance}</td>
+            </tr>
+          
+          </tbody>
+       </table>
+ 
 </div>
+
+
 
     }
 
 }
 
 invoicing(){
+
 if(this.state.invoice !== undefined){
 
  return <div>
 
-<button onClick={this.sending} class="btn waves-effect waves-light" type="submit" name="send"> Send Invoice</button>
+<button onClick={this.sending} class="btn waves-effect waves-light btn-small #64b5f6 red lighten-2" type="submit" name="send"> Send </button>
 
 </div>
 
@@ -132,7 +153,7 @@ if(this.state.invoice !== undefined){
 
 return <div>
 <Link to ={`/InvoiceItems/${this.state.aCustomer.id}`}>
-<button class="btn waves-effect waves-light" type="submit" name="action">Invoice Customer</button>
+<button class="btn waves-effect waves-light btn-small #64b5f6 blue lighten-2" type="submit" name="action">Invoice</button>
 </Link>
 
     </div>
@@ -147,28 +168,29 @@ return <div>
         return (
 <div>
 
-            {this.info()}
+{this.info()}
 
 
+<div className="info-btns">
 
-<button onClick ={this.delUser}
-class="btn waves-effect waves-light" type="submit" name="action">Delete Customer
-  </button>
-
-
-
-    {this.invoicing()}
-
-<Link to ={`/UpdateCustomer/${this.state.aCustomer.id}`}>
-<button 
-class="btn waves-effect waves-light" type="submit" name="action">Update Customer</button>
+<Link to={`/findCustomer`}>
+<button class="btn waves-effect waves-light modal-trigger btn-small #64b5f6 blue lighten-2">Back</button>
 </Link>
 
+ {this.invoicing()}
 
+<Link to={`/UpdateCustomer/${this.state.aCustomer.id}`}>
+<button class="btn waves-effect waves-light modal-trigger btn-small #64b5f6 blue lighten-2">Update</button>
+</Link>
 
+<button onClick ={this.delUser}
+class="btn waves-effect waves-light btn-small #64b5f6 blue lighten-2" type="submit" name="action">Delete</button>
 
+</div>
             </div>
         )
     }
 }
+
+
 

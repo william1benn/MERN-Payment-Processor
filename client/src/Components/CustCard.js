@@ -31,7 +31,7 @@ export default class CustCard extends Component {
               this.props.customer.paymentLink &&
               <a href ={this.props.customer.paymentLink} className=" list-button waves-effect btn-small #64b5f6 red lighten-2 col s4">Pay Now</a>
             }
-      <Link to={`customerInfo/${this.props.customer.custid}`} className=" list-button waves-effect btn-small #64b5f6 blue lighten-2 col s4 push-s1">View More</Link>
+      <Link to={`customerInfo/${this.props.customer.custid}`} id="view-btn" className="list-button waves-effect btn-small #64b5f6 blue lighten-2 col s4 push-s1">View More</Link>
           </tr>
         
       

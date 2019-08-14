@@ -6,7 +6,7 @@ const InvoItem = (props) => {
 
         let id = props.match.params.custid;
 
-        Axios.post(`${process.env.REACT_APP_BASE}InvoiceMethod/${id}`)
+        Axios.post(`${process.env.REACT_APP_BASE}/InvoiceMethod/${id}`)
         .then((theRes)=>{
   
             console.log(theRes)

@@ -25,11 +25,10 @@ margin-top:11px;
     margin-top:1%;
 }
 
-
-
 body {
-    width:100%;
-    background-image: url("/images/backg.jpg");
+  font-family: 'Fjalla One', sans-serif;
+  background-image: linear-gradient(to right, #43e97b 0%, #38f9d7 100%);
+
    }
    
 
@@ -39,60 +38,84 @@ body {
 
 .list-button{
     margin-top: 10px;
+    font-family: 'Fjalla One', sans-serif;
+
 }
 
 .custButton{
   display: flex;
   justify-content: center;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 /* STYLE FOR FORMS */
 
 .input-field label {
     color:#000;
+    font-family: 'Fjalla One', sans-serif;
+
   }
 
 .input-field {
     color:#000;
+    font-family: 'Fjalla One', sans-serif;
+
   }  
 .input-field input[type=text]:focus + label {
     color: #000;
+    font-family: 'Fjalla One', sans-serif;
+
   }
 
 .input-field input[type=text] {
     border-bottom: 2px #000;
     box-shadow: 0 2px 0 0 #000;
+    font-family: 'Fjalla One', sans-serif;
+
  }
 
  .input-field input[type=email] {
   border-bottom: 2px #000;
   box-shadow: 0 2px 0 0 #000;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 .input-field input[type=password] {
   border-bottom: 2px #000;
   box-shadow: 0 2px 0 0 #000;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 li{
   color:#4caf50;
+  font-family: 'Fjalla One', sans-serif;
+
 
 }
 
 nav ul li a{
   color: #4caf50;
+  font-family: 'Fjalla One', sans-serif;
+
 
 }
 
 .thePhone{
   width:100%;
   margin-left: 17%;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 
 .Main{
   display: flex;
   justify-content: space-around;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 .title{
@@ -102,22 +125,136 @@ nav ul li a{
   padding-top: 123px;
   display: flex;
   flex-direction: column;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 .signin-btn{
   width: 80%;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 .SignButton{
   margin-top:14%;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
 .theTitle{
   margin-right:17%;
   text-align: center;
+  font-family: 'Fjalla One', sans-serif;
+
 }
 
+.info-btns{
+  margin-top: 18px;
+  display: flex;
+  justify-content: space-evenly;
+}
 
+#view-btn{
+  margin-left: -7%;
+}
 
+.updateBtn{
+  display: flex;
+  justify-content: space-evenly;
+}
 
+.input label {
+  color:#000;
+  font-family: 'Fjalla One', sans-serif;
 
+}
+
+.input {
+  color:#000;
+  font-family: 'Fjalla One', sans-serif;
+}
+
+.input input[type=text]:focus + label {
+  color: #000;
+  font-family: 'Fjalla One', sans-serif;
+
+}
+
+.input input[type=text] {
+  border-bottom: 2px #000;
+  box-shadow: 0 2px 0 0 #000;
+  font-family: 'Fjalla One', sans-serif;
+
+}
+
+.input input[type=email] {
+border-bottom: 2px #000;
+box-shadow: 0 2px 0 0 #000;
+font-family: 'Fjalla One', sans-serif;
+
+}
+
+.input input[type=password] {
+border-bottom: 2px #000;
+box-shadow: 0 2px 0 0 #000;
+font-family: 'Fjalla One', sans-serif;
+
+}
+
+.create-Customer{
+border: #000 5px solid;
+width:300px;
+height:550px;
+padding-left: 11px;
+padding-right: 11px;
+
+}
+
+.invoice-Customer{
+  border: #000 5px solid;
+  width:300px;
+  height:550px;
+  padding-left: 11px;
+  padding-right: 11px;
+
+}
+
+.collect-Customer{
+  border: #000 5px solid;
+  width:300px;
+  height:550px;
+  padding-left: 11px;
+  padding-right: 11px;
+
+}
+
+.imageHow{
+  padding-top:8px;
+  width:100%;
+}
+
+.theHowTo{
+  display:flex;
+  justify-content: space-between;
+}
+
+.info-box{
+  font-size: 23px;
+}
+
+.theFooter{
+  padding-top:53px;
+}
+
+.page-footer{
+  background-color: #fff;
+}
+
+.footlinks{
+  color: #4caf50;
+}
+
+.how-title{
+display:flex;
+justify-content: center;
+}

@@ -1,14 +1,8 @@
 import React,{useContext,useEffect} from 'react';
-import AuthContext from '../context/auth/authContext';
+import { BrowserRouter, Route, Link, Switch, withRouter } from "react-router-dom";
 
 const Home = () => {
 
-const authContext = useContext(AuthContext);
-
-    useEffect(()=> {
-      authContext.loadUser();
-      //eslint-disable-next-line
-    },[]);
   
     return (
         <div className="Main">
@@ -22,7 +16,10 @@ const authContext = useContext(AuthContext);
                 </div>
             
             
-            <div className="SignButton"><button class="waves-effect waves-light btn-large signin-btn">Sign In</button></div>
+            <div className="SignButton">
+                
+        <Link><button class="waves-effect waves-light btn-large signin-btn">Sign In </button></Link>
+        </div>
             
             </div>
 

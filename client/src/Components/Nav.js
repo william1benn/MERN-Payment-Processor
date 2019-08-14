@@ -17,8 +17,8 @@ const  Nav =(props)=>{
 
   const authLinks =(
     <Fragment>
-      <li>Hello {user && user.name}</li>
-      <li> <Link to="/create">Create Customer</Link></li>
+      
+      <li><Link to="/">How it works</Link></li>
       <li> <Link to="/findCustomer">Search</Link></li>
 
       <li>
@@ -33,7 +33,7 @@ const  Nav =(props)=>{
     <Fragment>
       <li> <Link to="/login">Login</Link></li>
       <li> <Link to="/register">Register</Link></li>
-      <li><Link to="/howto">How it works</Link></li>
+      
     </Fragment>
   )
     
@@ -42,7 +42,8 @@ const  Nav =(props)=>{
      <nav>
     <div className="nav-wrapper #ffffff white">
       <ul id="nav-mobile" className="right">
-   {user? authLinks : guessLinks}
+      <li><Link to="/">How it works</Link></li>
+      <li> <Link to="/findCustomer">Search</Link></li>
       </ul>
     </div>
   </nav>

@@ -17,12 +17,12 @@ import CreateInvoiceItem from './CreateInvoiceItem';
 import Update from './Update';
 import AuthContext from '../context/auth/authContext';
 import hookClass from '../hookClass';
-
-
-//hookClass is imported
-
-
-
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
+import AddNew from './AddNew';
+import { create } from 'domain';
+import howto from './howto';
+import Footer from './footer';
  
 class Main extends Component {
   
@@ -43,8 +43,10 @@ class Main extends Component {
     componentDidMount(){
       //Updates customer
       this.allCustomers();
-
       this.props.theCurrentUser();
+
+      //Materialized CSS
+        M.AutoInit();
       
      
   }
@@ -55,7 +57,7 @@ class Main extends Component {
     this.setState({loading:true});
   
     setTimeout(() => {
-      axios.get(`${process.env.REACT_APP_BASE}allCustomers`)
+      axios.get(`${process.env.REACT_APP_BASE}/allCustomers`)
       .then(res=> this.setState({allUsers:res.data , loading:false, searched:res.data}))
     }, 1000);
 
@@ -73,16 +75,13 @@ class Main extends Component {
   
   }
     render() {
-
-
         return (
             <div>
 
               <Nav  theToken = {this.props.thetok} theCurrentUser={this.props.theCurrentUser} />
 
+
          <Alerts/>
-
-
         <Switch> 
 
         {/* Does not work to pass props */}
@@ -92,9 +91,9 @@ class Main extends Component {
               <Route exact path= '/Register' component={Register} />
 
               <Route exact path='/findCustomer' render={(props) => <Results theCustomers = {this.state.searched} loading={this.state.loading} theCust = {this.state.allUsers} searchRes = {this.searchRes} getCust ={this.allCustomers}/>}/>
+              {/* <Route exact path='/create' component={Createcust}/> */}
 
-              <Route exact path='/' component ={Home} />
-              <Route exact path='/create' component={Createcust}/>
+              <Route exact path='/' component ={howto} />
               <Route exact path='/customerInfo/:custid' component={CustomerInfo} />
               <Route exact path = '/InvoiceItems/:custid' component={CreateInvoiceItem} />
               <Route exact path = '/UpdateCustomer/:custid' component={Update} />
@@ -103,6 +102,12 @@ class Main extends Component {
 
         </Switch>
 
+
+          <Createcust />
+
+          <AddNew />
+
+          <Footer />
 
 
             </div>

@@ -2,7 +2,8 @@ import React, {Component} from "react";
 import axios from 'axios';
 import Main from './Components/Main';
 import './App.css';
-
+import 'materialize-css/dist/css/materialize.min.css';
+import M from 'materialize-css/dist/js/materialize.min.js';
 import AuthState from './context/auth/AuthState';
 import AlertState from './context/alert/AlertState';
 
@@ -17,6 +18,11 @@ import AlertState from './context/alert/AlertState';
   this.CurrentUser();
 
     }
+
+    componentDidMount(){
+      //Materialized CSS
+        M.AutoInit(); 
+  }
   
 
 

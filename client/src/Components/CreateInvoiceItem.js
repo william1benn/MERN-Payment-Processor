@@ -24,46 +24,48 @@ export default class CreateInvoiceItem extends Component {
 
             let id = this.props.match.params.custid;
 
-            axios.post(`${process.env.REACT_APP_BASE}invoice/InvoiceMethod/${id}`,{
+            axios.post(`${process.env.REACT_APP_BASE}/invoice/InvoiceMethod/${id}`,{
                 amount:this.state.amount,
                 description:this.state.description,
                
             }).then((theRes)=>{
-            axios.post(`${process.env.REACT_APP_BASE}invoice/createInvoice/`,{
+            axios.post(`${process.env.REACT_APP_BASE}/invoice/createInvoice/`,{
 
                     customer: this.props.match.params.custid,
                     days: this.state.days,
 
-
-            })
-    
-                console.log(theRes.data)
+                    
+                })
+                
+                
                 if(theRes.data === "ok"){
                     this.setState({
                         alerts: "Invoice Item Created",
                         color: 'green'
                     })
-              }
-              
+                }
+                
             }).catch((err)=>{
-
+                
                 if(err){
                     this.setState({
                         alerts: "Invoice Item Failed",
                         color: 'red'
                     })
                 }
-         
+                
             })
             setTimeout(()=>{
-
+                
                 this.setState({
                     amount:'',
                     description:'',
                     days:'',
-                   
+                    
                 })
             },5000)
+            
+            this.props.history.push(`/CustomerInfo/${id}`)
         }
         
 
@@ -72,7 +74,7 @@ export default class CreateInvoiceItem extends Component {
     render() {
         return (
 
-
+            <div className="container">
     <div className ="forms">
 
         
@@ -82,20 +84,22 @@ export default class CreateInvoiceItem extends Component {
 
     <label className="inputs">
     Amount:
-      <input name='amount' type="text" value={this.state.amount} onChange={this.handleChange} />
+      <input className="input-field col s8"  name='amount' type="text" value={this.state.amount} onChange={this.handleChange} />
     </label>
     <label className="inputs">
     Description:
-      <input name="description" type="text" value={this.state.description} onChange={this.handleChange} />
+      <input className="input-field col s8" name="description" type="text" value={this.state.description} onChange={this.handleChange} />
     </label>
     <label className="inputs">
     Day Until Due:
-      <input name='days' type="text" value={this.state.days} onChange={this.handleChange} />
+      <input className="input-field col s8" name='days' type="text" value={this.state.days} onChange={this.handleChange} />
     </label>
 
-    <button className="waves-effect btn-small">Create</button>
+    <button className="waves-effect btn-small">Create Invoice</button>
 
     </form>
+
+    </div>
 
     </div>
         )

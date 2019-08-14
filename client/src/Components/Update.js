@@ -1,5 +1,7 @@
 import React, { Component } from 'react';
+import M from 'materialize-css';
 import axios from 'axios';
+import {Link} from "react-router-dom";
 
 
 export default class Createcust extends Component {
@@ -21,9 +23,11 @@ export default class Createcust extends Component {
     
      
   componentDidMount(){
+    M.AutoInit(); 
+
 
     let id = this.props.match.params.custid;
-    axios.get(`${process.env.REACT_APP_BASE}${id}`).then((res)=>{
+    axios.get(`${process.env.REACT_APP_BASE}/getCustomer/${id}`).then((res)=>{
 
         this.setState({
     
@@ -45,6 +49,13 @@ export default class Createcust extends Component {
         
     }
 
+    backBtn(){
+  let id = this.props.match.params.custid;
+  return <Link to={`/CustomerInfo/${id}`}>
+<button class="btn waves-effect waves-light btn-small #64b5f6 blue lighten-2">Back</button>
+</Link>
+    }
+
   
 
 
@@ -60,7 +71,7 @@ updateCustomer=(e)=>{
 
     let id = this.props.match.params.custid;
 
-    axios.post(`${process.env.REACT_APP_BASE}updateCustomer/${id}`,{
+    axios.post(`${process.env.REACT_APP_BASE}/updateCustomer/${id}`,{
         name:this.state.Name,
         email:this.state.Email,
         phone:this.state.Phone,
@@ -92,59 +103,85 @@ updateCustomer=(e)=>{
         Desc:'',
         Balance:'',
     })
+
+    this.props.history.push(`/customerInfo/${id}`)
 }
 
 
     render() {
-      //Load the user
+      //the user
   
         return (
+  
             <div className ="forms" >
-                <form onSubmit={this.updateCustomer} className="Create-Customer">
-        <label className="inputs">
-        Name:
-          <input name='Name' type="text" value={this.state.Name} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        Email:
-          <input name="Email" type="text" value={this.state.Email} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        Phone Number:
-          <input name="Phone" type="text" value={this.state.Phone} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        Street Address:
-          <input name="Street" type="text" value={this.state.Street} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        City:
-          <input name="City" type="text" value={this.state.City} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        State:
-          <input name="State" type="text" value={this.state.State} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        Zip Code:
-          <input name="Zip" type="text" value={this.state.Zip} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        Country:
-          <input name="Country" type="text" value={this.state.Country} onChange={this.handleChange} />
-        </label>
-        <label>
-        Description Of Charge:
-          <input name="Desc" type="text" value={this.state.Desc} onChange={this.handleChange} />
-        </label>
-        <label className="inputs">
-        Balance:
-          <input name="Balance" type="text" value={this.state.Balance} onChange={this.handleChange} />
-        </label>
-
-        <button>Submit</button>
-            </form>
+    
+            <h4>Update Customer </h4>
+          <div className="row">
+          <form onSubmit={this.updateCustomer} className="Create-Customer" class="col s12">
+            <div className="row">
+              <div class="input col s6">
+                <label htmlFor="first_name">Name</label>
+                <input name='Name' id="name" type="text" value={this.state.Name} onChange={this.handleChange} class="validate"/>
+              </div>
+              <div class="input col s6">
+                <label>Email</label>
+                <input  name="Email" type="email" value={this.state.Email} onChange={this.handleChange} class="validate"/>
+              </div>
             </div>
+            <div className="row">
+              <div class="input col s6">
+                <label>Phone Number</label>
+                <input  name="Phone" type="text" value={this.state.Phone} onChange={this.handleChange} className="validate"/>
+              </div>
+              <div class="input col s6">
+                <label for="balance">Balance</label>
+                <input name="Balance" type="text" value={this.state.Balance} onChange={this.handleChange}  class="validate"/>
+              </div>
+            </div>
+            <div class="row">
+              <div class="input col s12">
+                <label>Street Address</label>
+                <input name="Street" type="text" value={this.state.Street} onChange={this.handleChange}  class="validate"/>
+              </div>
+            </div>
+              <div class="row">
+              <div class="input col s4">
+                <label htmlFor="city">City</label>
+                <input input name="City" type="text" value={this.state.City} onChange={this.handleChange}  class="validate"/>
+              </div>
+              <div class="input col s4">
+                <label>State</label>
+                <input name="State" type="text" value={this.state.State} onChange={this.handleChange} class="validate"/>
+              </div>
+                  <div class="input col s4">
+                <label>Zip Code</label>
+                <input name="Zip" type="text" value={this.state.Zip} onChange={this.handleChange}  class="validate"/>
+              </div>
+            </div>
+        <div class="row">
+              <div class="input col s12">
+                <label>Description Of Charge</label>
+                <input name="Desc" type="text" value={this.state.Desc} onChange={this.handleChange} class="validate"/>
+              </div>
+              </div>
+              <span className="updateBtn">
+              {this.backBtn()}
+              <button className="btn waves-effect waves-light btn-small #64b5f6 blue lighten-2">Update</button>
+              </span>
+          </form>
+          
+        </div> 
+        
+      </div> 
+
+      
+
+
+
+          
         )
     }
 }
+
+
+
